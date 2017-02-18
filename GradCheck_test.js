@@ -70,8 +70,9 @@
     });
         
     $(document).ready(function(){
-        $("#temp").on('keyup keydown change click',function(){
-    		var cel= $(this).val()-273;
+        $("#button_test").on('keyup keydown change click',function(){
+    		var cel= $("#temp").val()-273;
+    		catscope.celcius=cel
     		
             writeOut("#celcius",cel);
       		//$("#celcius").val(cel);
@@ -120,9 +121,13 @@
   		//var peace=math.eval("densityA + densityB",catscope);
   		 var peace=math.eval('dens_Array*transpose(MW_Array)',catscope);
         $("#overall_dens").val(peace);
-         
-        
+         catscope.overall_dens= peace;
         });
+        
+        $("#button_test").on('keyup keydown change click',function(){
+            var test= math.eval("overall_dens*celcius",catscope);
+            writeOut("#test",test);
+         });    
     
   
     });
