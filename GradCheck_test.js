@@ -72,7 +72,7 @@
     $(document).ready(function(){
         $("#button_test").on('keyup keydown change click',function(){
     		var cel= $("#temp").val()-273;
-    		catscope.celcius=cel
+    		catscope.celcius=cel;
     		
             writeOut("#celcius",cel);
       		//$("#celcius").val(cel);
